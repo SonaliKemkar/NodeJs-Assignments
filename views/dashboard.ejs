@@ -1,0 +1,47 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Add Profile
+        </h1>
+        <% include ./partials/messages %>
+        <form action="/users/addprofile"  enctype="multipart/form-data" method="POST">
+          <div class="form-group">
+            <label for="firstname"> First Name</label>
+            <input
+              type="name"
+              id="fname"
+              name="fname"
+              class="form-control"
+              placeholder="Enter First Name"
+              value="<%= typeof fname != 'undefined' ? fname : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastname"> Last Name</label>
+            <input
+              type="name"
+              id="lname"
+              name="lname"
+              class="form-control"
+              placeholder="Enter First Name"
+              value="<%= typeof lname != 'undefined' ? lname : '' %>"
+            />
+          </div>
+          <div>
+            <input type="file" name="file" id='image'>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Add Profile
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+

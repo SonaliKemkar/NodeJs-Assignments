@@ -16,9 +16,8 @@ const app = express();
 // Passport Config
 require('./config/passport')(passport);
 
-// DB Config
-const db = process.env.MONGO_DB_LOCAL;
-//require('./config/database').mongoURI;
+// DB Config accessing db url from env
+const db = require('./config/database').mongoURI;
 
 // EJS
 app.use(expressLayouts);

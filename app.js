@@ -5,6 +5,9 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+dotenv.config(options,{path : '../config/env'});
 
 const fs = require('fs'); 
 
@@ -14,9 +17,8 @@ const app = express();
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/database').mongoURI;
-
-
+const db = process.env.MONGO_DB_LOCAL;
+//require('./config/database').mongoURI;
 
 // EJS
 app.use(expressLayouts);
